@@ -1,0 +1,67 @@
+---
+description: Checkboxes allow the user to select one or more items from a set.
+labels: ['material-ui', 'react', 'typescript', 'checkbox', 'inputs']
+---
+
+import {
+  FormGroup,
+  FormControlLabel,
+} from '@cosmo-flux/design.inputs.form';
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Checkbox } from './checkbox.js';
+
+Checkboxes can be used to turn an option on or off.
+
+If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches. If you have a single option, avoid using a checkbox and use an on/off switch instead.
+
+## Basic usage
+
+```js live
+() => {
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  return (
+    <Box>
+      <Checkbox {...label} defaultChecked />
+      <Checkbox {...label} />
+      <Checkbox {...label} disabled />
+      <Checkbox {...label} disabled checked />
+    </Box>
+  );
+};
+```
+
+## Checkbox labels
+
+You can provide a label to the `Checkbox` thanks to the [`Form`](https://bit.cloud/cosmo-flux.design/inputs/form) component.
+
+```js live
+() => (
+  <FormGroup>
+    <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+    <FormControlLabel required control={<Checkbox />} label="Required" />
+    <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+  </FormGroup>
+);
+```
+
+## Controlled checkbox
+
+You can control the checkbox with the `checked` and `onChange` props:
+
+```js live
+() => {
+  const [checked, setChecked] = React.useState(true);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+
+  return (
+    <>
+      {`"checked": ${checked}`}
+      <Checkbox checked={checked} onChange={handleChange} />
+    </>
+  );
+};
+```

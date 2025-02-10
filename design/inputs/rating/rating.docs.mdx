@@ -1,0 +1,59 @@
+---
+description: Ratings provide insight regarding others' opinions and experiences, and can allow the user to submit a rating of their own.
+---
+
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Rating } from './rating.js';
+
+## Basic usage
+
+A demo of a controlled Rating component.
+
+```js live
+() => <Rating defaultValue={2} />;
+```
+
+## Controlled Rating
+
+You can control the rating with the `value` and `onChange` props:
+
+```js live
+() => {
+  const [value, setValue] = React.useState(3);
+
+  return (
+    <Rating
+      value={value}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+      }}
+    />
+  );
+};
+```
+
+## Rating precision and maximum value
+
+The rating can display any float number with the `value` prop. Use the `precision` prop to define the minimum increment value change allowed.
+Change the maximum number of stars with the `max` prop.
+
+```js live
+() => (
+  <Stack spacing={1}>
+    <Rating name="half-rating" defaultValue={2.5} precision={0.5} max={7} />
+  </Stack>
+);
+```
+
+## Disabled and read-only ratings
+
+The rating can be disabled with the `disabled` prop. It can also be read-only with the `readOnly` prop.
+
+```js live
+() => (
+  <Stack spacing={1}>
+    <Rating name="read-only" value={3} readOnly />
+    <Rating name="disabled" value={2} disabled />
+  </Stack>
+);
+```

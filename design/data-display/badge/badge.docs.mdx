@@ -1,0 +1,53 @@
+---
+description: Badge generates a small badge to the top-right of its child(ren).
+---
+
+import MailIcon from '@mui/icons-material/Mail';
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Badge } from './badge.js';
+
+Badges are small status descriptors for UI elements. A badge consists of a small circle, typically containing a number or other short set of characters, that appears in proximity to another object. Badges are used to quickly communicate information to users and to urge them to take action.
+
+## Basic usage
+
+The `Badge` component wraps its child(ren) and renders a small circle with a number or other content. The `badgeContent` prop sets the content of the badge. The `color` prop sets the color of the badge.
+
+```js live
+() => (
+  <Badge badgeContent={4} color="primary">
+    <MailIcon />
+  </Badge>
+);
+```
+
+## Color variations
+
+The `color` prop can be used to set the color of the badge.
+
+```js live
+() => (
+  <Box>
+    <Badge badgeContent={4} color="primary">
+      <MailIcon />
+    </Badge>
+    <Badge badgeContent={4} color="secondary">
+      <MailIcon />
+    </Badge>
+    <Badge badgeContent={4} color="error">
+      <MailIcon />
+    </Badge>
+  </Box>
+);
+```
+
+## Maximum value
+
+The `max` prop can be used to limit the value of the badge content.
+
+```js live
+() => (
+  <Badge badgeContent={999} color="primary" max={99}>
+    <MailIcon />
+  </Badge>
+);
+```

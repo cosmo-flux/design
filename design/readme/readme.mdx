@@ -1,0 +1,76 @@
+
+# The Acme base components
+
+Welcome the Acme base component library. This includes foundational building blocks for assembling UI components, pages and apps faster and enjoy a consistent UI. 
+
+## Quick start
+
+Install the Acme theme and a basic component using your package manager of choice.
+
+```bash
+npm install @cosmo-flux/design.material-ui-theme @cosmo-flux/design.inputs.button
+```
+
+> Ensure to configure the Bit registry prior to installing packages.  
+> Use `npm config set '@teambit:registry' https://node-registry.bit.cloud` to configure the Bit registry.
+
+Use the Acme theme in the root of your application:
+
+```tsx
+import { ThemeProvider } from '@cosmo-flux/design.material-ui-theme';
+ 
+ReactDOM.render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+  document.getElementById('root')
+)
+```
+
+## Use components
+
+Use the components anywhere needed in your project.
+
+```tsx
+import { Button } from '@cosmo-flux/design.inputs.button';
+ 
+export function App() {
+  return (
+    <Button>Get started</Button>
+  );
+}
+```
+
+You can explore further components in the scope components tab.
+
+## Customizing components
+
+You can customize the component styles and behaviour by using the component API:
+
+- Customize styles using the `className` and `style` properties.
+- Explore component API to customize behaviour.
+
+To start making changes to components, click the Edit scope or Edit component in your scope and components.
+
+## Customizing the theme
+
+You can edit the theme component directly to customize the theme.
+To create a custom theme overriding specific values, use:
+
+```tsx
+import { ThemeProvider, defaultTheme } from '@cosmo-flux/design.material-ui-theme';
+
+export function CustomTheme({ children }) {
+  const options = defaultTheme({ 
+    palette: { 
+      primary: { 
+        main: '#f14242'
+      }
+    }
+  });
+
+  return <ThemeProvider options={options}>{children}</ThemeProvider>;
+}
+```
+
+Learn more about theme customization options in your project's [UI Theme component documentation](https://bit.cloud/cosmo-flux.design/material-ui-theme).

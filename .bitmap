@@ -9,5 +9,348 @@
  */
 
 {
+    "data-display/avatar": {
+        "name": "data-display/avatar",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/avatar"
+    },
+    "data-display/badge": {
+        "name": "data-display/badge",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/badge"
+    },
+    "data-display/chip": {
+        "name": "data-display/chip",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/chip"
+    },
+    "data-display/divider": {
+        "name": "data-display/divider",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/divider"
+    },
+    "data-display/list": {
+        "name": "data-display/list",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/list"
+    },
+    "data-display/table": {
+        "name": "data-display/table",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/table"
+    },
+    "data-display/tooltip": {
+        "name": "data-display/tooltip",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/tooltip"
+    },
+    "data-display/typography": {
+        "name": "data-display/typography",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/data-display/typography"
+    },
+    "envs/material-ui-env": {
+        "name": "envs/material-ui-env",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/envs/material-ui-env"
+    },
+    "feedback/alert": {
+        "name": "feedback/alert",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/feedback/alert"
+    },
+    "feedback/backdrop": {
+        "name": "feedback/backdrop",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/feedback/backdrop"
+    },
+    "feedback/dialog": {
+        "name": "feedback/dialog",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/feedback/dialog"
+    },
+    "feedback/progress": {
+        "name": "feedback/progress",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/feedback/progress"
+    },
+    "feedback/skeleton": {
+        "name": "feedback/skeleton",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/feedback/skeleton"
+    },
+    "feedback/snackbar": {
+        "name": "feedback/snackbar",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/feedback/snackbar"
+    },
+    "inputs/autocomplete": {
+        "name": "inputs/autocomplete",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/autocomplete"
+    },
+    "inputs/button": {
+        "name": "inputs/button",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/button"
+    },
+    "inputs/button-group": {
+        "name": "inputs/button-group",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/button_1"
+    },
+    "inputs/checkbox": {
+        "name": "inputs/checkbox",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/checkbox"
+    },
+    "inputs/floating-action-button": {
+        "name": "inputs/floating-action-button",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/floating-action-button"
+    },
+    "inputs/form": {
+        "name": "inputs/form",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/form"
+    },
+    "inputs/input": {
+        "name": "inputs/input",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/input"
+    },
+    "inputs/radio-group": {
+        "name": "inputs/radio-group",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/radio-group"
+    },
+    "inputs/rating": {
+        "name": "inputs/rating",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/rating"
+    },
+    "inputs/select": {
+        "name": "inputs/select",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/select"
+    },
+    "inputs/slider": {
+        "name": "inputs/slider",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/slider"
+    },
+    "inputs/switch": {
+        "name": "inputs/switch",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/switch"
+    },
+    "inputs/text-field": {
+        "name": "inputs/text-field",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/text-field"
+    },
+    "inputs/toggle-button": {
+        "name": "inputs/toggle-button",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/inputs/toggle-button"
+    },
+    "layout/box": {
+        "name": "layout/box",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/layout/box"
+    },
+    "layout/container": {
+        "name": "layout/container",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/layout/container"
+    },
+    "layout/grid": {
+        "name": "layout/grid",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/layout/grid"
+    },
+    "layout/image-list": {
+        "name": "layout/image-list",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/layout/image-list"
+    },
+    "layout/stack": {
+        "name": "layout/stack",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/layout/stack"
+    },
+    "material-ui-theme": {
+        "name": "material-ui-theme",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/material-ui-theme"
+    },
+    "navigation/bottom-navigation": {
+        "name": "navigation/bottom-navigation",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/bottom-navigation"
+    },
+    "navigation/breadcrumbs": {
+        "name": "navigation/breadcrumbs",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/breadcrumbs"
+    },
+    "navigation/drawer": {
+        "name": "navigation/drawer",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/drawer"
+    },
+    "navigation/link": {
+        "name": "navigation/link",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/link"
+    },
+    "navigation/menu": {
+        "name": "navigation/menu",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/menu"
+    },
+    "navigation/pagination": {
+        "name": "navigation/pagination",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/pagination"
+    },
+    "navigation/speed-dial": {
+        "name": "navigation/speed-dial",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/speed-dial"
+    },
+    "navigation/stepper": {
+        "name": "navigation/stepper",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/stepper"
+    },
+    "navigation/tabs": {
+        "name": "navigation/tabs",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/navigation/tabs"
+    },
+    "readme": {
+        "name": "readme",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/readme"
+    },
+    "surfaces/accordion": {
+        "name": "surfaces/accordion",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/surfaces/accordion"
+    },
+    "surfaces/app-bar": {
+        "name": "surfaces/app-bar",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/surfaces/app-bar"
+    },
+    "surfaces/card": {
+        "name": "surfaces/card",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/surfaces/card"
+    },
+    "surfaces/paper": {
+        "name": "surfaces/paper",
+        "scope": "cosmo-flux.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/surfaces/paper"
+    },
     "$schema-version": "17.0.0"
 }

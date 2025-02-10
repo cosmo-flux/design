@@ -1,0 +1,51 @@
+---
+description: A Floating Action Button (FAB) performs the primary, or most common, action on a screen.
+---
+
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Fab } from './floating-action-button.js';
+
+A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center. FABs come in two types: regular, and extended.
+
+Only use a FAB if it is the most suitable way to present a screen's primary action. Only one component is recommended per screen to represent the most common action.
+
+## Basic usage
+
+```js live
+() => (
+  <Fab color="primary" aria-label="add">
+    <AddIcon />
+  </Fab>
+);
+```
+
+## Colors and sizes
+
+```js live
+() => (
+  <Stack spacing={2} margin={2}>
+    <Fab color="primary" aria-label="add">
+      <AddIcon />
+    </Fab>
+    <Fab color="secondary" aria-label="edit">
+      <EditIcon />
+    </Fab>
+    <Fab color="default" aria-label="delete">
+      <DeleteIcon />
+    </Fab>
+    <Fab color="inherit" aria-label="save">
+      <SaveIcon />
+    </Fab>
+    <Fab size="small" color="secondary" aria-label="add">
+      <AddIcon />
+    </Fab>
+    <Fab size="medium" color="secondary" aria-label="add">
+      <AddIcon />
+    </Fab>
+  </Stack>
+);
+```

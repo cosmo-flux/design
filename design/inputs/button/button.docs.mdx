@@ -1,0 +1,82 @@
+---
+description: Buttons allow users to take actions, and make choices, with a single tap.
+labels: ['material-ui', 'react', 'typescript', 'button', 'inputs']
+---
+
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { Button } from './button.js';
+import { LoadingButton } from './loading-button.js';
+import { IconButton } from './icon-button.js';
+
+Buttons communicate actions that users can take. They are typically placed throughout your UI, in places like:
+
+- Modal windows
+- Forms
+- Cards
+- Toolbars
+
+## Basic usage
+
+The button component provides the standard `Button` component, the experimental `LoadingButton` component, and the `IconButton` component.
+
+```ts
+import {
+  Button,
+  LoadingButton,
+  IconButton,
+} from '@cosmo-flux/design.inputs.button';
+```
+
+```js live
+() => (
+  <Stack spacing={2}>
+    <Button variant="contained">Button</Button>
+    <LoadingButton loading variant="contained">
+      Loading Button
+    </LoadingButton>
+    <IconButton aria-label="delete">
+      <DeleteIcon />
+    </IconButton>
+  </Stack>
+);
+```
+
+## Variants, colors, and sizes
+
+```js live
+() => (
+  <Stack spacing={2} margin={5}>
+    <Button variant="contained">Contained</Button>
+    <Button variant="outlined">Outlined</Button>
+    <Button variant="text">Text</Button>
+    <Button variant="contained" color="primary">
+      Primary
+    </Button>
+    <Button variant="contained" color="secondary">
+      Secondary
+    </Button>
+    <Button variant="contained" color="error">
+      Error
+    </Button>
+    <Button variant="contained" color="warning">
+      Warning
+    </Button>
+    <Button variant="contained" color="info">
+      Info
+    </Button>
+    <Button variant="contained" color="success">
+      Success
+    </Button>
+    <Button variant="contained" size="small">
+      Small
+    </Button>
+    <Button variant="contained" size="medium">
+      Medium
+    </Button>
+    <Button variant="contained" size="large">
+      Large
+    </Button>
+  </Stack>
+);
+```

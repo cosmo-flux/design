@@ -1,0 +1,153 @@
+---
+description: Text Fields let users enter and edit text.
+---
+
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { TextField } from './text-field.js';
+
+Text fields allow users to enter text into a UI. They typically appear in forms and dialogs.
+
+## Basic usage
+
+The `TextField` wrapper component is a complete form control including a label, input, and help text. It comes with three variants: outlined (default), filled, and standard.
+
+```js live
+() => (
+  <Stack spacing={2} direction="row">
+    <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+    <TextField id="filled-basic" label="Filled" variant="filled" />
+    <TextField id="standard-basic" label="Standard" variant="standard" />
+  </Stack>
+);
+```
+
+## Form props
+
+Standard form attributes are supported, for example `required`, `disabled`, `type`, etc. as well as a helperText which is used to give context about a field's input, such as how the input will be used.
+
+```js live
+() => {
+  return (
+    <Box
+      component="form"
+      sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+        <TextField
+          required
+          id="outlined-required"
+          label="Required"
+          defaultValue="Hello World"
+        />
+        <TextField
+          disabled
+          id="outlined-disabled"
+          label="Disabled"
+          defaultValue="Hello World"
+        />
+        <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          autoComplete="current-password"
+        />
+        <TextField
+          id="outlined-read-only-input"
+          label="Read Only"
+          defaultValue="Hello World"
+          slotProps={{
+            input: {
+              readOnly: true,
+            },
+          }}
+        />
+        <TextField
+          id="outlined-number"
+          label="Number"
+          type="number"
+          slotProps={{
+            inputLabel: {
+              shrink: true,
+            },
+          }}
+        />
+        <TextField id="outlined-search" label="Search field" type="search" />
+        <TextField
+          id="outlined-helperText"
+          label="Helper text"
+          defaultValue="Default Value"
+          helperText="Some important text"
+        />
+      </div>
+    </Box>
+  );
+};
+```
+
+## Form validation
+
+The `error` prop toggles the error state. The `helperText` prop can then be used to provide feedback to the user about the error.
+
+```js live
+() => {
+  return (
+    <Box
+      component="form"
+      sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+    >
+      <div>
+        <TextField
+          error
+          id="outlined-error"
+          label="Error"
+          defaultValue="Hello World"
+        />
+        <TextField
+          error
+          id="outlined-error-helper-text"
+          label="Error"
+          defaultValue="Hello World"
+          helperText="Incorrect entry."
+        />
+      </div>
+      <div>
+        <TextField
+          error
+          id="filled-error"
+          label="Error"
+          defaultValue="Hello World"
+          variant="filled"
+        />
+        <TextField
+          error
+          id="filled-error-helper-text"
+          label="Error"
+          defaultValue="Hello World"
+          helperText="Incorrect entry."
+          variant="filled"
+        />
+      </div>
+      <div>
+        <TextField
+          error
+          id="standard-error"
+          label="Error"
+          defaultValue="Hello World"
+          variant="standard"
+        />
+        <TextField
+          error
+          id="standard-error-helper-text"
+          label="Error"
+          defaultValue="Hello World"
+          helperText="Incorrect entry."
+          variant="standard"
+        />
+      </div>
+    </Box>
+  );
+};
+```

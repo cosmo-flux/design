@@ -1,0 +1,70 @@
+---
+description: The App Bar displays information and actions relating to the current screen.
+---
+
+import MenuIcon from '@mui/icons-material/Menu';
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Typography } from '@cosmo-flux/design.data-display.typography';
+import { Button, IconButton } from '@cosmo-flux/design.inputs.button';
+import { AppBar } from './app-bar.js';
+import { Toolbar } from './toolbar.js';
+
+The top App bar provides content and actions related to the current screen. It's used for branding, screen titles, navigation, and actions.
+
+It can transform into a contextual action bar or be used as a navbar.
+
+## Basic usage
+
+```ts
+import { AppBar, Toolbar } from '@cosmo-flux/design.surfaces.app-bar';
+```
+
+```js live
+() => {
+  return (
+    <Box sx={{ flexGrow: 1, width: 400 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+};
+```
+
+## Dense
+
+```js live
+() => (
+  <Box sx={{ flexGrow: 1 }}>
+    <AppBar position="static">
+      <Toolbar variant="dense">
+        <IconButton
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{ mr: 2 }}
+        >
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" color="inherit" component="div">
+          Photos
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  </Box>
+);
+```

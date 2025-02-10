@@ -1,0 +1,59 @@
+---
+description: The Link component allows you to easily customize anchor elements with your theme colors and typography styles.
+---
+
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Link } from './link.js';
+
+## Basic usage
+
+The Link component is built on top of the [Typography](https://bit.cloud/cosmo-flux.design/data-display/typography) component, meaning that you can use its props.
+
+```js live
+() => (
+  <Stack spacing={2}>
+    <Link href="#" color="inherit">
+      {'inherit'}
+    </Link>
+    <Link href="#" color="primary">
+      {'primary'}
+    </Link>
+    <Link href="#" color="secondary">
+      {'secondary'}
+    </Link>
+    <Link href="#" color="text.primary">
+      {'text.primary'}
+    </Link>
+    <Link href="#" color="text.secondary">
+      {'text.secondary'}
+    </Link>
+    <Link href="#" color="error">
+      {'error'}
+    </Link>
+  </Stack>
+);
+```
+
+## Underlined
+
+The `underline` prop can be used to set the underline behavior. The default is always.
+
+```js live
+() => {
+  const preventDefault = (event) => event.preventDefault();
+  return (
+    <Stack spacing={2} onClick={preventDefault}>
+      <Link href="#" underline="none">
+        {'underline="none"'}
+      </Link>
+      <Link href="#" underline="hover">
+        {'underline="hover"'}
+      </Link>
+      <Link href="#" underline="always">
+        {'underline="always"'}
+      </Link>
+    </Stack>
+  );
+};
+```

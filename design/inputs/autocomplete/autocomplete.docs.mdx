@@ -1,0 +1,121 @@
+---
+description: The autocomplete is a normal text input enhanced by a panel of suggested options.
+labels: ['material-ui', 'react', 'typescript', 'autocomplete', 'inputs']
+---
+
+import { TextField } from '@cosmo-flux/design.inputs.text-field';
+import { Autocomplete, createFilterOptions } from './autocomplete.js';
+import { top100Films } from './mock-data.dev.js';
+
+The widget is useful for setting the value of a single-line textbox in one of two types of scenarios:
+
+The value for the textbox must be chosen from a predefined set of allowed values, for example a location field must contain a valid location name: combo box.
+The textbox may contain any arbitrary value, but it is advantageous to suggest possible values to the user, for example a search field may suggest similar or previous searches to save the user time: free solo.
+
+## Basic usage
+
+In the following demo the value must be chosen from a predefined set of allowed values:
+
+```js live
+() => {
+  const theMatrixFilms = [
+    { label: 'The Matrix', year: 1999 },
+    { label: 'The Matrix Reloaded', year: 2003 },
+    { label: 'The Matrix Revolutions', year: 2003 },
+    { label: 'The Matrix Resurrections', year: 2021 },
+  ];
+
+  return (
+    <Autocomplete
+      disablePortal
+      id="combo-box-demo"
+      options={theMatrixFilms}
+      sx={{ width: 300, margin: '10px 0 200px 0' }}
+      renderInput={(params) => <TextField {...params} label="Film" />}
+    />
+  );
+};
+```
+
+By default, the component accepts the following options structures:
+
+```ts
+interface AutocompleteOption {
+  label: string;
+}
+
+// or
+
+type AutocompleteOption = string;
+```
+
+## Grouped options
+
+You can group the options with the groupBy prop.
+If you do so, make sure that the options are also sorted with the same dimension that they are grouped by, otherwise, you will notice duplicate headers.
+
+```js live
+() => {
+  const options = top100Films.map((option) => {
+    const firstLetter = option.label[0].toUpperCase();
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+      ...option,
+    };
+  });
+
+  return (
+    <Autocomplete
+      id="grouped-demo"
+      options={options.sort(
+        (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
+      )}
+      groupBy={(option) => option.firstLetter}
+      getOptionLabel={(option) => option.label}
+      sx={{ width: 300 }}
+      renderInput={(params) => (
+        <TextField {...params} label="With categories" />
+      )}
+    />
+  );
+};
+```
+
+## Controlled options
+
+The component has two states that can be controlled:
+
+1. the "value" state with the value/onChange props combination. This state represents the value selected by the user, for instance when pressing Enter.
+1. the "input value" state with the inputValue/onInputChange props combination. This state represents the value displayed in the textbox.
+
+These two states are isolated, and should be controlled independently.
+
+```js live
+() => {
+  const options = ['Option 1', 'Option 2'];
+  const [value, setValue] = React.useState(null);
+  const [inputValue, setInputValue] = React.useState('');
+
+  return (
+    <div>
+      <div>{`value: ${value !== null ? `'${value}'` : 'null'}`}</div>
+      <div>{`inputValue: '${inputValue}'`}</div>
+      <br />
+      <Autocomplete
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        inputValue={inputValue}
+        onInputChange={(event, newInputValue) => {
+          setInputValue(newInputValue);
+        }}
+        id="controllable-states-demo"
+        options={options}
+        sx={{ width: 300 }}
+        renderInput={(params) => <TextField {...params} label="Controllable" />}
+      />
+    </div>
+  );
+};
+```

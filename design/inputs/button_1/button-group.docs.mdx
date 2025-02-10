@@ -1,0 +1,78 @@
+---
+description: The ButtonGroup component can be used to group related buttons.
+labels: ['material-ui', 'react', 'typescript', 'button-group', 'inputs']
+---
+
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Button } from '@cosmo-flux/design.inputs.button';
+import { ButtonGroup } from './button-group.js';
+
+## Basic usage
+
+The buttons can be grouped by wrapping them with the `ButtonGroup` component. They need to be immediate children.
+
+```js live
+() => (
+  <ButtonGroup variant="contained" aria-label="outlined primary button group">
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </ButtonGroup>
+);
+```
+
+## Vertical group
+
+The button group can be displayed vertically using the `orientation` prop.
+
+```js live
+() => (
+  <ButtonGroup orientation="vertical">
+    <Button>One</Button>
+    <Button>Two</Button>
+    <Button>Three</Button>
+  </ButtonGroup>
+);
+```
+
+## Variants, colors and sizes
+
+```js live
+() => (
+  <Stack spacing={2}>
+    <ButtonGroup
+      variant="contained"
+      color="primary"
+      aria-label="contained primary button group"
+    >
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+    <ButtonGroup
+      variant="outlined"
+      color="secondary"
+      aria-label="outlined secondary button group"
+    >
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+    <ButtonGroup
+      variant="text"
+      color="error"
+      aria-label="text error button group"
+    >
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+    <ButtonGroup size="small" aria-label="small button group">
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Stack>
+);
+```

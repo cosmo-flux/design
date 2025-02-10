@@ -1,0 +1,64 @@
+---
+description: Switches toggle the state of a single setting on or off.
+---
+
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { Switch } from './switch.js';
+
+Switches are the preferred way to adjust settings on mobile. The option that the switch controls, as well as the state it's in, should be made clear from the corresponding inline label.
+
+## Basic usage
+
+```js live
+() => {
+  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+  return (
+    <>
+      <Switch {...label} defaultChecked />
+      <Switch {...label} />
+      <Switch {...label} disabled defaultChecked />
+      <Switch {...label} disabled />
+    </>
+  );
+};
+```
+
+## Switch labels
+
+You can provide a label to the Switch thanks to the [`FormControlLabel`](https://bit.cloud/cosmo-flux.design/inputs/form) component.
+
+```js live
+() => (
+  <FormGroup>
+    <FormControlLabel control={<Switch defaultChecked />} label="Label" />
+    <FormControlLabel required control={<Switch />} label="Required" />
+    <FormControlLabel disabled control={<Switch />} label="Disabled" />
+  </FormGroup>
+);
+```
+
+## Controlled switch
+
+You can control the switch with the `checked` and `onChange` props:
+
+```js live
+() => {
+  const [checked, setChecked] = React.useState(true);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+
+  return (
+    <>
+      <Switch
+        checked={checked}
+        onChange={handleChange}
+        inputProps={{ 'aria-label': 'controlled' }}
+      />
+      {checked ? 'On' : 'Off'}
+    </>
+  );
+};
+```

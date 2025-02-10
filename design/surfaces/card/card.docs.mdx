@@ -1,0 +1,87 @@
+---
+description: Cards contain content and actions about a single subject.
+---
+
+import { Button, IconButton } from '@cosmo-flux/design.inputs.button';
+import { Typography } from '@cosmo-flux/design.data-display.typography';
+import { Card } from './card.js';
+import { CardContent } from './card-content.js';
+import { CardMedia } from './card-media.js';
+import { CardActions } from './card-actions.js';
+import { CardHeader } from './card-header.js';
+
+Cards are surfaces that display content and actions on a single topic. The Material UI Card component includes several complementary utility components to handle various use cases (all are provided by this component).
+
+- `Card`: a surface-level container for grouping related components.
+- `CardContent`: the wrapper for the Card content.
+- `CardHeader`: an optional wrapper for the Card header.
+- `CardMedia`: an optional container for displaying images, videos, etc.
+- `CardActions`: an optional wrapper that groups a set of buttons.
+- `CardActionArea`: an optional wrapper that allows users to interact with the specified area of the Card.
+
+## Basic usage
+
+```ts
+import {
+  Card,
+  CardContent,
+  CardActions,
+} from '@cosmo-flux/design.surfaces.card';
+```
+
+```js live
+() => (
+  <Card sx={{ minWidth: 275 }}>
+    <CardContent>
+      <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+        Word of the Day
+      </Typography>
+      <Typography variant="h5" component="div">
+        be-nev-o-lent
+      </Typography>
+      <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
+        adjective
+      </Typography>
+      <Typography variant="body2">
+        well meaning and kindly.
+        <br />
+        {'"a benevolent smile"'}
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Learn More</Button>
+    </CardActions>
+  </Card>
+);
+```
+
+## Media
+
+```ts
+import {
+  Card,
+  CardContent,
+  CardMedia,
+} from '@cosmo-flux/design.surfaces.card';
+```
+
+```js live
+() => (
+  <Card sx={{ maxWidth: 345 }}>
+    <CardMedia
+      sx={{ height: 140 }}
+      image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
+      title="green iguana"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        Lizard
+      </Typography>
+      <Typography variant="body2">
+        Lizards are a widespread group of squamate reptiles, with over 6,000
+        species, ranging across all continents except Antarctica
+      </Typography>
+    </CardContent>
+  </Card>
+);
+```

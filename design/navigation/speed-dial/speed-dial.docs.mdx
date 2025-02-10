@@ -1,0 +1,51 @@
+---
+description: When pressed, a floating action button can display three to six related actions in the form of a Speed Dial.
+---
+
+import Box from '@mui/material/Box';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
+import { SpeedDial } from './speed-dial.js';
+import { SpeedDialIcon } from './speed-dial-icon.js';
+import { SpeedDialAction } from './speed-dial-action.js';
+import { PlaygroundSpeedDial } from './speed-dial.composition.js';
+
+If more than six actions are needed, something other than a FAB should be used to present them.
+
+## Basic usage
+
+The floating action button can display related actions.
+
+```js live
+() => {
+  const actions = [
+    { icon: <FileCopyIcon />, name: 'Copy' },
+    { icon: <SaveIcon />, name: 'Save' },
+    { icon: <PrintIcon />, name: 'Print' },
+    { icon: <ShareIcon />, name: 'Share' },
+  ];
+  return (
+    <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
+      <SpeedDial
+        ariaLabel="SpeedDial basic example"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </SpeedDial>
+    </Box>
+  );
+};
+```
+
+## Playground
+
+<PlaygroundSpeedDial />

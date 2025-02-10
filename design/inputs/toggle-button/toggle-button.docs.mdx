@@ -1,0 +1,123 @@
+---
+description: A Toggle Button can be used to group related options.
+---
+
+import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
+import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
+import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
+import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import FormatItalicIcon from '@mui/icons-material/FormatItalic';
+import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
+import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
+import { ToggleButton } from './toggle-button.js';
+import { ToggleButtonGroup } from './toggle-button-group.js';
+
+To emphasize groups of related Toggle buttons, a group should share a common container.
+The `ToggleButtonGroup` controls the selected state of its child buttons when given its own `value` prop.
+
+## Basic usage
+
+With exclusive selection, selecting one option deselects any other.
+
+In this example, text justification toggle buttons present options for left, center, right, and fully justified text (disabled), with only one item available for selection at a time.
+
+```js
+import {
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@cosmo-flux/design.inputs.toggle-button';
+```
+
+```js live
+() => {
+  const [alignment, setAlignment] = React.useState('left');
+
+  const handleAlignment = (event, newAlignment) => {
+    setAlignment(newAlignment);
+  };
+
+  return (
+    <ToggleButtonGroup value={alignment} exclusive onChange={handleAlignment}>
+      <ToggleButton value="left" aria-label="left aligned">
+        <FormatAlignLeftIcon />
+      </ToggleButton>
+      <ToggleButton value="center" aria-label="centered">
+        <FormatAlignCenterIcon />
+      </ToggleButton>
+      <ToggleButton value="right" aria-label="right aligned">
+        <FormatAlignRightIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+};
+```
+
+## Multiple selection
+
+Multiple selection allows for logically-grouped options, like bold, italic, and underline, to have multiple options selected.
+
+```js live
+() => {
+  const [formats, setFormats] = React.useState(() => ['bold', 'italic']);
+
+  const handleFormat = (event, newFormats) => {
+    setFormats(newFormats);
+  };
+
+  return (
+    <ToggleButtonGroup
+      value={formats}
+      onChange={handleFormat}
+      aria-label="text formatting"
+    >
+      <ToggleButton value="bold">
+        <FormatBoldIcon />
+      </ToggleButton>
+      <ToggleButton value="italic">
+        <FormatItalicIcon />
+      </ToggleButton>
+      <ToggleButton value="underlined">
+        <FormatUnderlinedIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+};
+```
+
+## Vertical grouping
+
+The buttons can be stacked `vertically` with the orientation prop set to "vertical".
+
+```js live
+() => {
+  const [view, setView] = React.useState('list');
+
+  const handleChange = (event, nextView) => {
+    setView(nextView);
+  };
+
+  return (
+    <ToggleButtonGroup
+      orientation="vertical"
+      value={view}
+      exclusive
+      onChange={handleChange}
+    >
+      <ToggleButton value="list">
+        <ViewListIcon />
+      </ToggleButton>
+      <ToggleButton value="module">
+        <ViewModuleIcon />
+      </ToggleButton>
+      <ToggleButton value="quilt">
+        <ViewQuiltIcon />
+      </ToggleButton>
+    </ToggleButtonGroup>
+  );
+};
+```

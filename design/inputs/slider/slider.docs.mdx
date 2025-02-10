@@ -1,0 +1,97 @@
+---
+description: Sliders allow users to make selections from a range of values.
+---
+
+import VolumeDown from '@mui/icons-material/VolumeDown';
+import VolumeUp from '@mui/icons-material/VolumeUp';
+import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
+import { Slider } from './slider.js';
+
+Sliders reflect a range of values along a bar, from which users may select a single value.
+They are ideal for adjusting settings such as volume, brightness, or applying image filters.
+
+## Basic usage
+
+```js live
+() => {
+  const [value, setValue] = React.useState(30);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <Slider
+      aria-label="Volume"
+      value={value}
+      onChange={handleChange}
+      sx={{ width: 300 }}
+    />
+  );
+};
+```
+
+## Discrete sliders
+
+Discrete sliders can be adjusted to a specific value by referencing its value indicator. You can generate a mark for each step with `marks={true}`.
+
+```js live
+() => {
+  function valuetext(value) {
+    return `${value}°C`;
+  }
+  return (
+    <Slider
+      aria-label="Temperature"
+      defaultValue={30}
+      getAriaValueText={valuetext}
+      valueLabelDisplay="auto"
+      shiftStep={30}
+      step={10}
+      marks
+      min={10}
+      max={110}
+      sx={{ width: 300 }}
+    />
+  );
+};
+```
+
+## Custom marks
+
+You can have custom marks by providing a rich array to the marks prop.
+
+```js live
+() => {
+  function valuetext(value) {
+    return `${value}°C`;
+  }
+  const marks = [
+    {
+      value: 0,
+      label: '0°C',
+    },
+    {
+      value: 37,
+      label: '37°C',
+    },
+    {
+      value: 100,
+      label: '100°C',
+    },
+  ];
+
+  return (
+    <Slider
+      aria-label="Custom marks"
+      defaultValue={20}
+      getAriaValueText={valuetext}
+      step={10}
+      valueLabelDisplay="auto"
+      marks={marks}
+      sx={{ width: 300 }}
+    />
+  );
+};
+```

@@ -1,0 +1,16 @@
+export { Table } from './table.js';
+export type { TableProps } from './table.js';
+export { TableBody } from './table-body.js';
+export type { TableBodyProps } from './table-body.js';
+export { TableCell } from './table-cell.js';
+export type { TableCellProps } from './table-cell.js';
+export { TableContainer } from './table-container.js';
+export type { TableContainerProps } from './table-container.js';
+export { TableFooter } from './table-footer.js';
+export type { TableFooterProps } from './table-footer.js';
+export { TableHead } from './table-head.js';
+export type { TableHeadProps } from './table-head.js';
+export { TableRow } from './table-row.js';
+export type { TableRowProps } from './table-row.js';
+export { TableSortLabel } from './table-sort-label.js';
+export type { TableSortLabelProps } from './table-sort-label.js';

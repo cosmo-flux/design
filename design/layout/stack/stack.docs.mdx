@@ -1,0 +1,66 @@
+---
+description: Stack is a container component for arranging elements vertically or horizontally.
+---
+
+import Box from '@mui/material/Box';
+import { Stack } from './stack.js';
+import { Item } from './docs.dev.js';
+
+The Stack component manages the layout of its immediate children along the vertical or horizontal axis, with optional spacing and dividers between each child.
+
+> Stack is ideal for one-dimensional layouts, while Grid is preferable when you need both vertical and horizontal arrangement.
+
+## Basic usage
+
+The Stack component acts as a generic container, wrapping around the elements to be arranged.
+
+Use the spacing prop to control the space between children. The spacing value can be any number, including decimals, or a string. (The prop is converted into a CSS property using the `theme.spacing()` helper.)
+
+```js live
+() => (
+  <Box sx={{ width: 400 }}>
+    <Stack spacing={2}>
+      <Item>Item 1</Item>
+      <Item>Item 2</Item>
+      <Item>Item 3</Item>
+    </Stack>
+  </Box>
+);
+```
+
+## Direction
+
+By default, Stack arranges items vertically in a column. Use the `direction` prop to position items horizontally in a row:
+
+```js live
+() => (
+  <div>
+    <Stack direction="row" spacing={2}>
+      <Item>Item 1</Item>
+      <Item>Item 2</Item>
+      <Item>Item 3</Item>
+    </Stack>
+  </div>
+);
+```
+
+## Responsive values
+
+You can switch the `direction` or `spacing` values based on the active breakpoint.
+
+```js live
+() => {
+  return (
+    <div>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={{ xs: 1, sm: 2, md: 4 }}
+      >
+        <Item>Item 1</Item>
+        <Item>Item 2</Item>
+        <Item>Item 3</Item>
+      </Stack>
+    </div>
+  );
+};
+```

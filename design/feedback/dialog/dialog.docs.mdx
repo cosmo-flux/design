@@ -1,0 +1,80 @@
+---
+description: Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+---
+
+import { Button, IconButton } from '@cosmo-flux/design.inputs.button';
+import Slide from '@mui/material/Slide';
+import {
+  List,
+  ListItemText,
+  ListItemButton,
+} from '@cosmo-flux/design.data-display.list';
+import { DialogContentText } from './dialog-content-text.js';
+import { Divider } from '@cosmo-flux/design.data-display.divider';
+import { AppBar, Toolbar } from '@cosmo-flux/design.surfaces.app-bar';
+import { Typography } from '@cosmo-flux/design.data-display.typography';
+import CloseIcon from '@mui/icons-material/Close';
+import { Paper } from '@cosmo-flux/design.surfaces.paper';
+import Draggable from 'react-draggable';
+import { DialogTitle } from './dialog-title.js';
+import { Dialog } from './dialog.js';
+import { DialogActions } from './dialog-actions.js';
+import { DialogContent } from './dialog-content.js';
+
+A Dialog is a type of modal window that appears in front of app content to provide critical information or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.
+
+Dialogs are purposefully interruptive, so they should be used sparingly.
+
+## Basic usage
+
+Dialogs are implemented using a collection of related components, **all provided by this component**:
+
+- `Dialog`: the parent component that renders the modal.
+- `DialogTitle`: a wrapper used for the title of a Dialog.
+- `DialogActions`: an optional container for a Dialog's Buttons.
+- `DialogContent`: an optional container for displaying the Dialog's content.
+- `DialogContentText`: a wrapper for text inside of `<DialogContent />`.
+
+```js live
+() => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <React.Fragment>
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Open alert dialog
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Google help apps determine location. This means sending
+            anonymous location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Disagree</Button>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
+  );
+};
+```

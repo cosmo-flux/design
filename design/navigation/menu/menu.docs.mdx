@@ -1,0 +1,132 @@
+---
+description: Menus display a list of choices on temporary surfaces.
+---
+
+import ContentCut from '@mui/icons-material/ContentCut';
+import ContentCopy from '@mui/icons-material/ContentCopy';
+import ContentPaste from '@mui/icons-material/ContentPaste';
+import Cloud from '@mui/icons-material/Cloud';
+import { Button } from '@cosmo-flux/design.inputs.button';
+import { Divider } from '@cosmo-flux/design.data-display.divider';
+import { Paper } from '@cosmo-flux/design.surfaces.paper';
+import { Typography } from '@cosmo-flux/design.data-display.typography';
+import {
+  ListItemText,
+  ListItemIcon,
+  List,
+  ListItemButton,
+} from '@cosmo-flux/design.data-display.list';
+import { Menu } from './menu.js';
+import { MenuItem } from './menu-item.js';
+import { MenuList } from './menu-list.js';
+
+A menu displays a list of choices on a temporary surface. It appears when the user interacts with a button, or other control.
+
+## Basic usage
+
+A basic menu opens over the anchor element by default (this option can be changed via props). When close to a screen edge, a basic menu vertically realigns to make sure that all menu items are completely visible.
+
+Choosing an option should immediately ideally commit the option and close the menu.
+
+**Disambiguation**: In contrast to simple menus, simple dialogs can present additional detail related to the options available for a list item or provide navigational or orthogonal actions related to the primary task. Although they can display the same content, simple menus are preferred over simple dialogs because simple menus are less disruptive to the user's current context.
+
+```ts
+import { Menu, MenuItem } from '@cosmo-flux/design.navigation.menu';
+```
+
+```js live
+() => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div>
+      <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+      >
+        Dashboard
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
+    </div>
+  );
+};
+```
+
+## Icon menu
+
+In desktop viewport, padding is increased to give more space to the menu.
+
+```ts
+import {
+  Menu,
+  MenuList,
+  MenuItem,
+} from '@cosmo-flux/design.navigation.menu';
+```
+
+```js live
+() => {
+  return (
+    <Paper sx={{ width: 320, maxWidth: '100%' }}>
+      <MenuList>
+        <MenuItem>
+          <ListItemIcon>
+            <ContentCut fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Cut</ListItemText>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            ⌘X
+          </Typography>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <ContentCopy fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Copy</ListItemText>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            ⌘C
+          </Typography>
+        </MenuItem>
+        <MenuItem>
+          <ListItemIcon>
+            <ContentPaste fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Paste</ListItemText>
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            ⌘V
+          </Typography>
+        </MenuItem>
+        <Divider />
+        <MenuItem>
+          <ListItemIcon>
+            <Cloud fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Web Clipboard</ListItemText>
+        </MenuItem>
+      </MenuList>
+    </Paper>
+  );
+};
+```

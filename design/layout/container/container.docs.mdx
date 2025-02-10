@@ -1,0 +1,29 @@
+---
+description: The container centers your content horizontally. It's the most basic layout element.
+---
+
+While containers can be nested, most layouts do not require a nested container.
+
+## Basic usage
+
+A fluid container width is bounded by the `maxWidth` prop value.
+
+```jsx
+() => (
+  <Container maxWidth="sm">
+    <Children />
+  </Container>
+);
+```
+
+## Fixed
+
+If you prefer to design for a fixed set of sizes instead of trying to accommodate a fully fluid viewport, you can set the fixed prop. The max-width matches the min-width of the current breakpoint.
+
+```jsx
+() => (
+  <Container fixed>
+    <Children />
+  </Container>
+);
+```

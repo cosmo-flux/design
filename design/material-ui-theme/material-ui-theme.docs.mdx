@@ -1,0 +1,236 @@
+---
+description: A set of React components and functions used to create and apply custom themes to Material UI components.
+---
+
+import { ThemeDemo } from './material-ui-theme.composition';
+
+The Material UI Theme component allows you to create and apply custom themes to Material UI components.
+It offers the following customizable components and functions:
+
+- `ThemeProvider`: A component that applies a theme to Material UI components.
+- `createTheme`: A function that creates new MUI theme objects or extends existing ones.
+- `defaultTheme`: A function that returns the default (custom) MUI theme object.
+- `lightMode`: Styling values for a light theme.
+- `darkScheme`: Styling values for a dark theme.
+
+---
+
+<ThemeDemo />
+
+## Apply a theme using the theme provider
+
+Wrap MUI components in a `ThemeProvider` to apply a theme to them. The `ThemeProvider` uses the [default-theme](https://bit.cloud/cosmo-flux.design/material-ui-theme/~code/default-theme.ts) by default.
+
+```js
+import { ThemeProvider } from '@cosmo-flux/design.material-ui-theme';
+
+() => {
+  return (
+    <ThemeProvider>
+      <Button>I'm a themed button!</Button>
+    </ThemeProvider>
+  );
+};
+```
+
+The default theme includes a light and dark color schemes. Switch between 'light' and 'dark' using the `useColorScheme` hook.
+
+```tsx
+import { ThemeProvider } from '@cosmo-flux/design.material-ui-theme';
+import { useColorScheme } from '@mui/material/styles';
+import { defaultTheme } from './default-theme.js';
+// ...
+
+function ThemeSwitcher() {
+  const { mode, setMode } = useColorScheme();
+  return (
+    <Select
+      value={mode}
+      onChange={(event) => setMode(event.target.value as 'system' | 'light' | 'dark')}>
+      <MenuItem value="system">System</MenuItem>
+      <MenuItem value="light">Light</MenuItem>
+      <MenuItem value="dark">Dark</MenuItem>
+    </Select>
+)
+
+function MyAppOrComponentPreview () {
+  return (
+    <ThemeProvider>
+      <ThemeSwitcher />
+    </ThemeProvider>
+  )
+}
+```
+
+## Extend the default theme
+
+Pass an object to the `defaultTheme` function to extend the default theme (override the default theme's palette, typography, etc).
+
+```js
+import {
+  defaultTheme,
+  ThemeProvider,
+} from '@cosmo-flux/design.material-ui-theme';
+// ...
+
+const extendedTheme = defaultTheme({
+  palette: { primary: { main: '#946cc9' } },
+});
+
+function MyAppOrComponentPreview() {
+  return (
+    <ThemeProvider theme={extendedTheme}>
+      <Button>I'm a themed button!</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+## Create a new theme
+
+Use the `createTheme` function to create new MUI theme objects or extend existing ones.
+Theme objects allow you to customize the appearance of MUI components and modify certain functionalities, such as routing.
+
+```js
+import {
+  createTheme,
+  type ThemeOptions,
+} from '@cosmo-flux/design.material-ui-theme';
+
+export function defaultTheme(): ThemeOptions {
+  return createTheme({
+    palette: {
+      mode: 'light',
+      primary: {
+        main: '#4d64a8',
+      },
+    },
+  });
+}
+```
+
+### Customize the default theme typography
+
+To customize the theme's typography, you can update the `typography` key in the theme object.
+
+```js
+/**
+ * @componentId cosmo-flux.design/material-ui-theme
+ * @filename default-theme.ts
+ */
+
+export function defaultTheme(): ThemeOptions {
+  return createTheme({
+    components: {
+      MuiCssBaseline: {
+        /**
+         * Load the font-family and make it available in your app and component previews
+         * (modify the `getDefaultFonts` function to load your own fonts)
+         * */
+        styleOverrides: getDefaultFonts(),
+      },
+    typography: {
+      /**
+        * Override the typography for all default variants (h1, body, caption, etc)
+       */
+      fontFamily: 'Outfit, sans-serif',
+      /**
+       * Extend the typography with a new variant
+       */
+      handwriting: {
+        fontFamily: 'Handlee, cursive',
+      },
+    },
+  });
+}
+```
+
+#### Extending the typography variant type
+
+This theme uses the `TypographyVariantsOptions` interface to define custom typography variants.
+This interface is provided by the [custom Typography component](https://bit.cloud/cosmo-flux.design/data-display/typography). To extend or customize the typography variants, update the `TypographyVariantsOptions` interface in the [custom Typography component](https://bit.cloud/cosmo-flux.design/data-display/typography).
+
+```ts
+/**
+ * @componentId cosmo-flux.design/data-display/typography
+ * @filename typography.tsx
+ */
+
+import type { CSSProperties } from 'react';
+
+interface CustomTypographyPropsVariantOverrides {
+  handwriting: true;
+}
+
+export interface TypographyVariantsOptions
+  extends BaseTypographyVariantsOptions {
+  handwriting?: CSSProperties;
+}
+```
+
+## Customize the default theme routing system
+
+The following code sets the default theme to use the React Router routing system. Follow the same pattern to customize your theme with the routing system of your choice.
+
+```js
+import { createTheme } from './create-theme.js';
+import { Link as RouterLink } from 'react-router-dom';
+import type { LinkProps } from '@mui/material/Link';
+import { getDefaultFonts } from './get-default-fonts.js';
+
+export function defaultTheme(): ThemeOptions {
+  return createTheme({
+    components: {
+      /**
+       * use the react-router-dom Link component as the default component to handle routing
+       */
+      MuiLink: {
+        defaultProps: {
+          component: RouterLink,
+        } as LinkProps,
+      },
+      MuiButtonBase: {
+        defaultProps: {
+          LinkComponent: RouterLink,
+        },
+      },
+    }
+  });
+```
+
+The interface for the relevant MUI components should also be extended accordingly.
+For example, the 'Link' and 'Button' components will have an additional prop: `to`.
+
+```ts
+/**
+ * @componentId cosmo-flux.design/navigation/link
+ * @filename link.tsx
+ */
+
+import type { LinkProps as BaseLinkProps } from '@mui/material/Link';
+
+export interface LinkProps extends BaseLinkProps {
+  /**
+   * The URL to link to when the link is clicked.
+   * Uses react-router-dom's Link component.
+   */
+  to?: string;
+}
+```
+
+```ts
+/**
+ * @componentId cosmo-flux.design/inputs/button
+ * @filename button.tsx
+ */
+
+import type { ButtonProps as BaseButtonProps } from '@mui/material/Button';
+
+export interface ButtonProps extends BaseButtonProps {
+  /**
+   * The URL to link to when the button is clicked.
+   * Uses react-router-dom's Link component.
+   */
+  to?: string;
+}
+```

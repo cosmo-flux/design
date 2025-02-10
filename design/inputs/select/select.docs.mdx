@@ -1,0 +1,144 @@
+---
+description: Select components are used for collecting user provided information from a list of options.
+---
+
+import { Box } from '@cosmo-flux/design.layout.box';
+import { InputLabel } from '@cosmo-flux/design.inputs.input';
+import {
+  FormControl,
+  FormHelperText,
+} from '@cosmo-flux/design.inputs.form';
+import { MenuItem } from '@cosmo-flux/design.navigation.menu';
+import { Select } from './select.js';
+
+Menus are positioned under their emitting elements, unless they are close to the bottom of the viewport.
+
+## Basic usage
+
+The Select component works best with the [`FormControl`](https://bit.cloud/cosmo-flux.design/inputs/form) component. The [`InputLabel`](https://bit.cloud/cosmo-flux.design/inputs/input) is used to display the label of the select component. The `MenuItem` component is used to display the options of the select component.
+
+```ts
+import { InputLabel } from '@cosmo-flux/design.inputs.input';
+import { FormControl } from '@cosmo-flux/design.inputs.form';
+import { MenuItem } from '@cosmo-flux/design.navigation.menu';
+import { Select } from '@cosmo-flux/design.inputs.select';
+```
+
+```js live
+() => {
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  return (
+    <FormControl>
+      <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={age}
+        label="Age"
+        onChange={handleChange}
+        sx={{ width: 150 }}
+      >
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
+    </FormControl>
+  );
+};
+```
+
+## Input states
+
+```js live
+() => {
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
+  return (
+    <div>
+      <FormControl sx={{ m: 1, minWidth: 120 }} disabled>
+        <InputLabel id="demo-simple-select-disabled-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-disabled-label"
+          id="demo-simple-select-disabled"
+          value={age}
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+        <FormHelperText>Disabled</FormHelperText>
+      </FormControl>
+      <FormControl sx={{ m: 1, minWidth: 120 }} error>
+        <InputLabel id="demo-simple-select-error-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-error-label"
+          id="demo-simple-select-error"
+          value={age}
+          label="Age"
+          onChange={handleChange}
+          renderValue={(value) => `⚠️  - ${value}`}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+        <FormHelperText>Error</FormHelperText>
+      </FormControl>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-readonly-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-readonly-label"
+          id="demo-simple-select-readonly"
+          value={age}
+          label="Age"
+          onChange={handleChange}
+          inputProps={{ readOnly: true }}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+        <FormHelperText>Read only</FormHelperText>
+      </FormControl>
+      <FormControl required sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-required-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-required-label"
+          id="demo-simple-select-required"
+          value={age}
+          label="Age *"
+          onChange={handleChange}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+        <FormHelperText>Required</FormHelperText>
+      </FormControl>
+    </div>
+  );
+};
+```

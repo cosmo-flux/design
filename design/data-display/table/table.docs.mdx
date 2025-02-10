@@ -1,0 +1,46 @@
+---
+description: Tables display sets of data. They can be fully customized.
+---
+
+Tables display sets of data. They can be fully customized.
+
+## Basic usage
+
+A Table is composed of `TableHead`, `TableBody`, `TableRow`, and `TableCell` components, which are provided by this component.
+
+```
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
+} from '@cosmo-flux/design.data-display.table';
+import rows from './rows.js';
+
+(rows) => (
+    <TableContainer>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell align="right">Calories</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow
+              key={row.name}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell>{row.calories}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+```

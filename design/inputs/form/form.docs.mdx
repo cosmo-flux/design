@@ -1,0 +1,70 @@
+---
+description: A collection of elements and types for input components in a form.
+---
+
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import { FormControlLabel } from './form-control-label.js';
+import { FormControl } from './form-control.js';
+import { FormLabel } from './form-label.js';
+import { FormGroup } from './form-group.js';
+import { FormHelperText } from './form-helper-text.js';
+
+The Form component provides a collection of MUI components that work together to create structured, accessible, and user-friendly forms by managing the layout, labeling, grouping, and providing contextual guidance or validation feedback for form controls like checkboxes, radios, and inputs.
+
+- `FormControl`: Provides context and state management for form elements, ensuring accessibility and structure.
+- `FormLabel`: Acts as a label for a group of form controls, enhancing accessibility by identifying the form's purpose.
+- `FormControlLabel`: Combines a label with a control (e.g., checkbox or radio) to ensure they are associated and accessible.
+- `FormGroup`: Groups related form controls together, typically for layout purposes, either vertically or horizontally.
+- `FormHelperText`: Provides additional guidance or feedback under a form control, often used for instructions or error messages
+
+## Basic usage
+
+```ts
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  FormGroup,
+  FormHelperText,
+} from '@cosmo-flux/design.inputs.form';
+```
+
+```js live
+() => {
+  const [value, setValue] = React.useState('email');
+  const [error, setError] = React.useState(false);
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    setError(event.target.value === 'fax');
+  };
+
+  return (
+    <FormControl component="fieldset" error={error}>
+      <FormLabel component="legend" id="demo-radio-buttons-group-label">
+        Preferred Contact Method
+      </FormLabel>
+
+      <FormGroup>
+        <RadioGroup
+          aria-labelledby="demo-radio-buttons-group-label"
+          value={value}
+          name="radio-buttons-group"
+          onChange={handleChange}
+        >
+          <FormControlLabel value="email" control={<Radio />} label="Email" />
+          <FormControlLabel value="phone" control={<Radio />} label="Phone" />
+          <FormControlLabel value="fax" control={<Radio />} label="Fax" />
+        </RadioGroup>
+      </FormGroup>
+
+      <FormHelperText>
+        {error
+          ? 'Please select a valid option'
+          : 'Select your preferred contact method'}
+      </FormHelperText>
+    </FormControl>
+  );
+};
+```

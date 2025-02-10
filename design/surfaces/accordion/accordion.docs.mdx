@@ -1,0 +1,98 @@
+---
+description: The Accordion component lets users show and hide sections of related content on a page.
+---
+
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Typography } from '@cosmo-flux/design.data-display.typography';
+import { Accordion } from './accordion.js';
+import { AccordionActions } from './accordion-actions.js';
+import { AccordionDetails } from './accordion-details.js';
+import { AccordionSummary } from './accordion-summary.js';
+
+The Material UI Accordion component includes several complementary utility components to handle various use cases (all are provided by this component)
+
+- `Accordion`: the wrapper for grouping related components.
+- `AccordionSummary`: the wrapper for the Accordion header, which expands or collapses the content when clicked.
+- `AccordionDetails`: the wrapper for the Accordion content.
+- `AccordionActions`: an optional wrapper that groups a set of buttons.
+
+## Basic usage
+
+```ts
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  AccordionActions,
+} from '@cosmo-flux/design.surfaces.accordion';
+```
+
+```js live
+() => (
+  <div>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel1-header">
+        <Typography>Accordion 1</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />} id="panel2-header">
+        <Typography>Accordion 2</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+  </div>
+);
+```
+
+## Expanded by default
+
+Use the `defaultExpanded` prop on the Accordion component to have it opened by default.
+
+```js live
+() => (
+  <div>
+    <Accordion defaultExpanded>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1-content"
+        id="panel1-header"
+      >
+        <Typography>Expanded by default</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel2-content"
+        id="panel2-header"
+      >
+        <Typography>Header</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          malesuada lacus ex, sit amet blandit leo lobortis eget.
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+  </div>
+);
+```

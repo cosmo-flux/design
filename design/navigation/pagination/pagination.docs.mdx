@@ -1,0 +1,43 @@
+---
+description: The Pagination component enables the user to select a specific page from a range of pages.
+---
+
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Pagination } from './pagination.js';
+
+## Basic usage
+
+```js live
+() => (
+  <Stack spacing={2} margin={2}>
+    <Pagination count={10} />
+    <Pagination count={10} color="primary" />
+    <Pagination count={10} color="secondary" />
+    <Pagination count={10} disabled />
+  </Stack>
+);
+```
+
+## Outlined pagination
+
+```js live
+() => (
+  <Stack spacing={2} margin={2}>
+    <Pagination count={10} variant="outlined" />
+    <Pagination count={10} variant="outlined" color="primary" />
+    <Pagination count={10} variant="outlined" color="secondary" />
+    <Pagination count={10} variant="outlined" disabled />
+  </Stack>
+);
+```
+
+## Rounded pagination
+
+```js live
+() => (
+  <Stack spacing={2} margin={2}>
+    <Pagination count={10} shape="rounded" />
+    <Pagination count={10} variant="outlined" shape="rounded" />
+  </Stack>
+);
+```

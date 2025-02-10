@@ -1,0 +1,45 @@
+---
+description: Tooltips display informative text when users hover over, focus on, or tap an element.
+---
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton, Button } from '@cosmo-flux/design.inputs.button';
+import { Tooltip, tooltipClasses } from './tooltip.js';
+
+## Basic usage
+
+When activated, Tooltips display a text label identifying an element, such as a description of its function.
+
+```js live
+() => (
+  <Tooltip title="Delete">
+    <IconButton>
+      <DeleteIcon />
+    </IconButton>
+  </Tooltip>
+);
+```
+
+## Controlled tooltips
+
+You can use the `open`, `onOpen` and `onClose` props to control the behavior of the tooltip.
+
+```js live
+() => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  return (
+    <Tooltip open={open} onClose={handleClose} onOpen={handleOpen} title="Add">
+      <Button>Controlled</Button>
+    </Tooltip>
+  );
+};
+```

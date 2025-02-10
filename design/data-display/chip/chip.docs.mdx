@@ -1,0 +1,54 @@
+---
+description: Chips are compact elements that represent an input, attribute, or action.
+---
+
+import { Stack } from '@cosmo-flux/design.layout.stack';
+import { Chip } from './chip.js';
+
+Chips are compact elements that represent an input, attribute, or action. They enable users to enter information, make selections, filter content, or trigger actions. Chips can be used to represent entities in various forms, such as tags, contacts, and interactive elements.
+
+## Basic usage
+
+Use the `label` prop sets the text content of the chip.
+
+```js live
+() => <Chip label="Basic Chip" />;
+```
+
+## Clickable chips
+
+Chips with the `onClick` prop defined change appearance on focus, hover, and click.
+
+```js live
+() => {
+  const handleClick = () => {
+    console.info('You clicked the Chip.');
+  };
+
+  return (
+    <Stack direction="row" spacing={1}>
+      <Chip label="Clickable" onClick={handleClick} />
+      <Chip label="Clickable" variant="outlined" onClick={handleClick} />
+    </Stack>
+  );
+};
+```
+
+## Deletable chips
+
+Chips with the `onDelete` prop defined will display a delete icon which changes appearance on hover.
+
+```js live
+() => {
+  const handleDelete = () => {
+    console.info('You clicked the delete icon.');
+  };
+
+  return (
+    <Stack direction="row" spacing={1}>
+      <Chip label="Deletable" onDelete={handleDelete} />
+      <Chip label="Deletable" variant="outlined" onDelete={handleDelete} />
+    </Stack>
+  );
+};
+```

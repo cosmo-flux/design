@@ -1,0 +1,62 @@
+---
+description: A collection of elements and types for input components.
+---
+
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Input } from './input.js';
+import { InputLabel } from './input-label.js';
+import { InputAdornment } from './input-adornment.js';
+
+This component provides a collection of MUI components that work together to create versatile and accessible text input fields, with customizable styling, labeling, and adornments.
+
+- `Input`: A styled and feature-rich input component, ready for typical form use cases.
+- `InputBase`: A bare-bones input component offering full customization for advanced use cases.
+- `InputLabel`: Provides labeling for inputs, enhancing accessibility and ensuring correct associations between inputs and their descriptions.
+- `InputAdornment`: Adds icons, text, or elements inside the input field, either before or after the user input, for improved UX.
+
+## Basic usage
+
+```ts
+import {
+  Input,
+  InputLabel,
+  InputAdornment,
+} from '@cosmo-flux/design.inputs.input';
+```
+
+```js live
+() => {
+  return (
+    <Box sx={{ '& > :not(style)': { m: 1 } }}>
+      <FormControl variant="standard">
+        <InputLabel htmlFor="input-with-icon-adornment">
+          With a start adornment
+        </InputLabel>
+        <Input
+          id="input-with-icon-adornment"
+          startAdornment={
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          }
+        />
+      </FormControl>
+      <TextField
+        id="input-with-icon-textfield"
+        label="TextField"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <AccountCircle />
+            </InputAdornment>
+          ),
+        }}
+        variant="standard"
+      />
+    </Box>
+  );
+};
+```

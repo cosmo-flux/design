@@ -1,0 +1,65 @@
+---
+description: The Divider component provides a thin, unobtrusive line for grouping elements to reinforce visual hierarchy.
+---
+
+import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
+import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
+import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import { Card } from '@cosmo-flux/design.surfaces.card';
+import { Box } from '@cosmo-flux/design.layout.box';
+import { Divider } from './divider.js';
+
+The `Divider` component provides a thin, unobtrusive line for grouping elements to reinforce visual hierarchy.
+
+## Basic Usage
+
+```js live
+() => {
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <FormatAlignLeftIcon />
+      <FormatAlignCenterIcon />
+      <FormatAlignRightIcon />
+      <Divider orientation="vertical" flexItem />
+      <FormatBoldIcon />
+    </Box>
+  );
+};
+```
+
+## Divider Variants
+
+The Divider component supports three variants: `fullWidth` (default), `inset`, and `middle`.
+
+```js live
+() => {
+  return (
+    <List>
+      <ListItem>
+        <ListItemText primary="Full width variant below" />
+      </ListItem>
+      <Divider component="li" />
+      <ListItem>
+        <ListItemText primary="Inset variant below" />
+      </ListItem>
+      <Divider variant="inset" component="li" />
+      <ListItem>
+        <ListItemText primary="Middle variant below" />
+      </ListItem>
+      <Divider variant="middle" component="li" />
+      <ListItem>
+        <ListItemText primary="List item" />
+      </ListItem>
+    </List>
+  );
+};
+```

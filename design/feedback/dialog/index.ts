@@ -1,0 +1,10 @@
+export { Dialog } from './dialog.js';
+export type { DialogProps } from './dialog.js';
+export { DialogActions } from './dialog-actions.js';
+export type { DialogActionsProps } from './dialog-actions.js';
+export { DialogContent } from './dialog-content.js';
+export type { DialogContentProps } from './dialog-content.js';
+export { DialogContentText } from './dialog-content-text.js';
+export type { DialogContentTextProps } from './dialog-content-text.js';
+export { DialogTitle } from './dialog-title.js';
+export type { DialogTitleProps } from './dialog-title.js';
